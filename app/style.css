@@ -229,12 +229,16 @@ button.icon_only:hover{
 
 
 
+#navbar > div {
+    position: sticky;
+    top: 0
+}
 
 #customizer {
     width: 350px;
 }
 #customizer > div > *,
-#navbar > .itm_heading_main
+#navbar .itm_heading_main
 {
     padding: 0 1em;
 }
