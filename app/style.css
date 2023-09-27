@@ -12,7 +12,8 @@
 /*     font-family: sans-serif */
 }
 body{
-    background: #000
+    background: #000;
+/*     overflow: hidden */
 }
 #main{
     --itchio_font_family: 'Source Code Pro';
@@ -25,7 +26,17 @@ body{
   --itchio_button_color: #fc3a78;
   --itchio_button_fg_color: #ffffff;
   --itchio_button_shadow_color: #ff4d8b;
+/*     min-height: 1000px !important; */
+    display: flex;
+    flex-direction: column;
 }
+#selector  {
+/*     min-height: 1000px !important; */
+    flex-grow: 1
+    
+}
+
+
 
 
 .hidden{
@@ -181,7 +192,9 @@ button.icon_only:hover{
     background: var(--bg)
 }
 #navbar fieldset{
-    padding: 0
+    padding: 0;
+/*     overflow: hidden */
+    height: max-content
 }
 #navbar fieldset button.icon_only{
     font-size: 1em !important;
@@ -218,7 +231,7 @@ button.icon_only:hover{
 
 
 #customizer {
-    width: 350px
+    width: 350px;
 }
 #customizer > div > *,
 #navbar > .itm_heading_main
@@ -231,6 +244,18 @@ button.icon_only:hover{
 #customizer h3{
     color:var(--tip)
 }
+
+
+#navbar{
+    margin-right: 0;
+    margin-left: 0;
+    border-radius: 0 0 4px 4px
+}
+#customizer{
+    margin-left: 0;
+    border-radius: 0 4px 4px 4px
+}
+
 
 
 
@@ -291,6 +316,7 @@ button.icon_only:hover{
 }
 .itm_config span, .itm_config label:not(.icon_only + label){
 /*     margin-top: .2em; */
+    margin-right: 1em;
     
 }
 
@@ -324,11 +350,12 @@ button.icon_only:hover{
 } */
 
 .itm_config > label[for="accrd_width"] {
-    width: 3em !important;
-    display: inline-block;
+/*     width: 8em !important; */
+    
+/*     display: inline-block; */
 }
 .itm_config > #accrd_width {
-    vertical-align: bottom;
+/*     vertical-align: bottom; */
 }
 
 
