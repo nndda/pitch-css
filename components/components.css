@@ -1,8 +1,16 @@
-#wrapper {
+
+#main {
   --l: var(--itchio_link_color);
   --t: var(--itchio_text_color);
+  
+  --d: var(--itchio_border_color);
+  
+  --n: var(--itchio_button_color);
+  --nf: var(--itchio_button_fg_color);
+ 
   --b: var(--itchio_bg_color);
-  --b2: var(--itchio_bg2_color)
+  --b2: var(--itchio_bg2_color);
+  --b3: var(--itchio_bg2_sub)
 }
 
 
@@ -11,8 +19,9 @@
 .custom-accrd {  
   max-width: 553px;
   margin: auto;
-  border: 1px solid var(--t);
-  border-color: color-mix(in srgb, var(--t) 50%, var(--b2));
+  border: 1px solid var(--d);
+/*   border: 1px solid var(--t); */
+/*   border-color: color-mix(in srgb, var(--t) 50%, var(--b2)); */
   border-radius: 6px;
   margin-top: 1.5em;
   margin-bottom: 1.5em;
@@ -20,14 +29,19 @@
 }
 
 .custom-accrd details {
-  background: var(--b2);
-  background: color-mix(in srgb, var(--b2) 94%, var(--t));
+/*   background: var(--b3); */
+  background: color-mix(in srgb, var(--b2) 98%, var(--t));
   padding: .75em 1.2em;
 }
 
 .custom-accrd details:not(:last-child) {
-  border-bottom: 1px solid var(--t);
-  border-color: color-mix(in srgb, var(--t) 40%, var(--b2))
+  border-bottom: 1px solid var(--d);
+/*   border-bottom: 1px solid var(--t); */
+/*   border-color: color-mix(in srgb, var(--t) 40%, var(--b2)) */
+}
+
+.custom-accrd details[open] summary {
+  margin-bottom: .6em
 }
 
 .custom-accrd details[open] summary:after {
@@ -52,11 +66,11 @@
   content: "\25BA"
 }
 
-.custom-left {
+.custom-accrd.custom-left {
   margin: 0
 }
 
-.custom-right {
+.custom-accrd.custom-right {
   margin: 0 0 0 auto
 }
 
@@ -101,11 +115,15 @@
 /***** INPUTS - START *****/
 #wrapper kbd {
   font-size: .9em;
-  background: var(--b2);
+/*   background: var(--b2); */
+  background: var(--b3);
   border-radius: 4px;
-  margin:.5em;
+  border-bottom: 2px solid var(--d);
+/*   margin:.5em; */
+  margin:.2em;
   padding: .2ch .7ch;
-  box-shadow: 0 1px 0 2px
+/*   box-shadow: 0 1px 0 2px */
+/*   box-shadow: 0 1px 0 2px var(--d) */
 }
 
 /***** INPUTS - END *****/
@@ -114,10 +132,12 @@
 
 /***** LABELS - START *****/
 .custom-lb, .custom-tag {
-  background: var(--l);
-  color: var(--b2) !important;
+/*   background: var(--l); */
+  background: var(--n);
+/*   color: var(--b2) !important; */
+  color: var(--nf) !important;
   text-decoration: none;
-  padding: 0 1ch;
+  padding: .2ch 1ch;
   margin: .4ch;
   font-weight: 700;
   border-radius: 4px;
@@ -126,23 +146,28 @@
 
 .custom-tag {
   font-family: Lato, sans-serif;
-  margin-right: 1em
+  margin-right: 1.5em
 }
 
 .custom-tag:before {
   content: "\2022";
   margin-right: .5ch;
-  color: var(--b2)
+/*   color: var(--b2) */
+  color: var(--nf)
 }
 
 .custom-tag:after {
   content: "";
   position: absolute;
   margin-left: .75ch ;
-  border-top: 1ch solid #fff0;
-  border-bottom: 1.2ch solid #fff0;
-  border-left: 1.2ch solid var(--l);
-  border-radius: 4px
+/*   border-top: 1ch solid #fff0; */
+  border-top: .8em solid #fff0;
+/*   border-bottom: 1.2ch solid #fff0; */
+  border-bottom: .8em solid #fff0;
+/*   border-left: 1.2ch solid var(--l); */
+  border-left: 1em solid var(--n);
+  border-radius: 4px;
+  transform: translateY(-.2em)
 }
 
 /***** LABELS - END *****/
@@ -156,5 +181,3 @@
 }
 
 /***** SPOILER - END *****/
-
-
