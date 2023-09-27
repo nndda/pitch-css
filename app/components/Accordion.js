@@ -7,6 +7,26 @@ const accrd_items = d.getElementById("accrd_0"
 var accrd_titles = ["Heading here..."];
 var accrd_contents = ["Content here..."];
 
+function accrd_save() {
+    localStorage.setItem( "accrd_titles", JSON.stringify(accrd_titles) );
+    localStorage.setItem( "accrd_contents", JSON.stringify(accrd_contents) );
+}
+window.onload = function accrd_load() {
+        add_accrd_item( "Uwu", "Uwu" );
+    accrd_titles = JSON.parse(localStorage.getItem("accrd_titles"));
+    accrd_contents = JSON.parse(localStorage.getItem("accrd_contents"));
+
+    // console.log(accrd_titles);
+    // console.log(accrd_contents);
+
+    for (var i = 0; i < accrd_titles.length; i++) {
+        // console.log(i);
+        console.log(accrd_titles[i]," ",accrd_contents[i]);
+        // add_accrd_item( accrd_titles[i], accrd_contents[i] );
+    }
+}
+
+
 function accrd_update() {
     accrd_titles = [];
     accrd_contents = [];
@@ -18,6 +38,7 @@ function accrd_update() {
         accrd_contents.push(accrd_items.getElementsByClassName("accrd_content")[i].textContent);
         accrd_prev_update(accrd_items.children[i].getElementsByClassName("accrd_title")[0]);
     }
+    // accrd_save();
 }
 
 function accrd_del_itm(target) {
@@ -29,10 +50,14 @@ function accrd_del_itm(target) {
 }
 
 
-function add_accrd_item() {
+function add_accrd_item( init_titles, init_content
+    ) {
     var new_accrd = d.getElementById("accrd_item_template").cloneNode(true);
     new_accrd.removeAttribute("id");
+    new_accrd.classList.add("accrd_custom_item");
     new_accrd.classList.remove("hidden");
+    new_accrd.getElementsByClassName("accrd_title")[0].value = init_titles.toString();
+    new_accrd.getElementsByClassName("accrd_content")[0].value = init_content.toString();
 
     accrd_items.appendChild(new_accrd);
     add_accrd_prev();
@@ -46,9 +71,12 @@ function add_accrd_prev() {
     elem.removeAttribute("class");
 
     d.getElementById("prev_accordion").getElementsByClassName("custom-accrd")[0].appendChild(elem);
-    console.log("dawdawd");
+    // console.log("dawdawd");
 }
 
+function accrd_prev_style_update() {
+    d.getElementById("prev_accordion").getElementsByClassName("custom-accrd")[0].style.maxWidth = d.getElementById("accrd_width").value.toString() + "%"
+}
 function accrd_prev_update(target) {
     var idx = Array.from(accrd_items.children).indexOf(target.parentElement);
     var el = d.getElementById("prev_accordion").getElementsByClassName("custom-accrd")[0].children[idx];

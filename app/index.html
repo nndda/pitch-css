@@ -6,15 +6,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" type="text/css" href="../itchio-css/components/components.css">
+  <link rel="stylesheet" type="text/css" href="../components/components.css">
   <link rel="stylesheet" type="text/css" href="third-party/normalize/normalize.min.css">
   <link rel="stylesheet" type="text/css" href="third-party/fontawesome/css/fontawesome.min.css">
   <link rel="stylesheet" type="text/css" href="third-party/fontawesome/css/regular.min.css">
   <link rel="stylesheet" type="text/css" href="third-party/fontawesome/css/solid.min.css">
   <link rel="stylesheet" type="text/css" href="third-party/input-range-scss/inputrange.css">
+  <!-- <script type="text/javascript" src="components/Accordion.js"></script> -->
 </head>
 
-<body>
+<body onload="
+// accrd_load();
+">
   <div id="main">
     <div id="header">
       <div>
@@ -89,12 +92,15 @@
         <div id="customize_accordion">
           <div class="itm_heading itm_heading_main">
             <h2>Accordion</h2>
-            <button class="icon_only sharp" onclick=""><i class="fa-solid fa-floppy-disk"></i></button>
+            <button class="icon_only sharp" onclick="accrd_save();"><i class="fa-solid fa-floppy-disk"></i></button>
           </div>
           <div id="accrd_0">
+
             <fieldset class="itm_config_menu">
               <div class="itm_config">
-                <span>Align<i class="_05em"></i></span>
+                <span>Align
+                  <!-- <i class="_05em"></i> -->
+                </span>
                 <input type="radio" name="accrd_align" id="accrd_align_left" class="icon_only">
                 <label for="accrd_align_left"><i class="fa-solid fa-align-left"></i></label>
                 <input checked type="radio" name="accrd_align" id="accrd_align_center" class="icon_only">
@@ -107,23 +113,23 @@
                 <label for="accrd_width_b">Width</label>
                 <input type="checkbox" name="" id="accrd_width_b">
               </div> -->
+              <!-- 
               <div class="itm_config">
                 <input type="checkbox" name="" id="accrd_anim">
                 <label for="accrd_anim">Animation
-                  <!-- <i class="_1em"></i> -->
                   <i class="_05em"></i>
                   <i class="fa-solid fa-square-check"></i>
                   <i class="fa-regular fa-square"></i>
                 </label>
-              </div>
+              </div> -->
               <br>
               <div class="itm_config flex_basis_100">
-                <label for="accrd_width">80%</label>
+                <label for="accrd_width" style="white-space: nowrap;">Width  80%</label>
                 <input oninput="
-                this.parentElement.getElementsByTagName('label')[0].textContent = this.value.toString() + '%'
-                " type="range" min="1" max="100" value="80" id="accrd_width">
+                this.parentElement.getElementsByTagName('label')[0].textContent = 'Width  ' + this.value.toString() + '%';accrd_prev_style_update()" type="range" min="1" max="100" value="80" id="accrd_width">
               </div>
             </fieldset>
+
             <fieldset>
               <div class="accrd_custom_item">
                 <div class="itm_heading">
@@ -135,8 +141,10 @@
                 <textarea class="accrd_content" oninput="accrd_prev_update(this);">Content here...</textarea>
               </div>
             </fieldset>
-            <button class="add_itm_btn" onclick="add_accrd_item(this);"><i style="margin:.2em;margin-right:.5em;margin-left:0" class="fa-solid fa-circle-plus"></i>Add item</button>
-            <div class="accrd_custom_item hidden" id="accrd_item_template">
+
+            <button class="add_itm_btn" onclick="add_accrd_item('Heading here...','Content here...');"><i style="margin:.2em;margin-right:.5em;margin-left:0" class="fa-solid fa-circle-plus"></i>Add item</button>
+
+            <div class="hidden" id="accrd_item_template">
               <div class="itm_heading">
                 <h3>Item 1</h3>
                 <button class="icon_only icon_del" disabled onclick="accrd_del_itm(this);accrd_update();"><i class="fa-solid fa-trash-can"></i></button>
@@ -159,7 +167,7 @@
             </summary>
             <div>Content here...</div>
           </details>
-          <div class="custom-accrd">
+          <div class="custom-accrd custom-anim">
             <details>
               <summary>
                 Heading here...
@@ -171,7 +179,11 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    
+  </script>
   <script type="text/javascript" src="components/Accordion.js"></script>
+
 </body>
 
 </html>
